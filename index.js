@@ -22,14 +22,6 @@ class AntDesignThemePlugin {
     const options = this.options;
     compiler.hooks.emit.tapAsync('AntDesignThemePlugin', (compilation, callback) => {
       const less = `
-    <link rel="stylesheet/less" type="text/css" href="${options.publicPath}/color.less" />
-    <script>
-      window.less = {
-        async: false,
-        env: 'production'
-      };
-    </script>
-    <script type="text/javascript" src="${options.lessUrl}"></script>
         `;
       if (
         options.indexFileName &&

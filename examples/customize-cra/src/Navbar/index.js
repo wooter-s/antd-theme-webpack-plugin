@@ -24,7 +24,7 @@ const Navbar = props => {
 
   return (
     <Header className="app-header">
-      <div className="logo">Antd Live Theme</div>
+      <div className="logo">Antd 实时样式</div>
       <Default>{menu}</Default>
       <Mobile>
         <Icon type="bars" size="large" className="nav-icon" onClick={() => setVisible(true)} />

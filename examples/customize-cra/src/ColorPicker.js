@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { ChromePicker, SketchPicker } from 'react-color';
+import React, { Component, PureComponent } from 'react';
+import { ChromePicker, SketchPicker, PhotoshopPicker } from 'react-color';
 
 const noop = () => { };
 
 const pickers = {
   chrome: ChromePicker,
   sketch: SketchPicker,
+  photoShop: PhotoshopPicker,
 };
 
 export default class ColorPicker extends Component {
@@ -37,7 +38,7 @@ export default class ColorPicker extends Component {
   };
   handleChangeComplete = (color) => {
     this.setState({ color: color.hex });
-    this.props.onChangeComplete(color.hex);
+    // this.props.onChangeComplete(color.hex);
   };
   render() {
     const { small, type, position } = this.props;
@@ -90,11 +91,13 @@ export default class ColorPicker extends Component {
       <div style={styles.popover}>
         <div style={styles.cover} onClick={this.handleClose} />
         <div style={styles.wrapper}>
-          <Picker
+          <SketchPicker
             {...this.props}
             color={this.state.color}
-            onChange={this.handleChange}
+            // onChange={this.handleChange}
             onChangeComplete={this.handleChangeComplete}
+            onAccept={(color, e) => {
+            }}
           />
         </div>
       </div>
